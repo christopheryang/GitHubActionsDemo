@@ -1,0 +1,14 @@
+name: "Workflow 1: Shell Commands" # Workflow name shown in GitHub Actions tab
+
+on: [push]
+
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: 1. Initialization
+        run: echo "Starting the workflow"
+      - name: 2. Show versions
+        run: |
+          node -v
+          npm -v
