@@ -1,6 +1,6 @@
 name: "Workflow 1: Shell Commands" # Workflow name shown in GitHub Actions tab
 
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
   run-shell-command:
