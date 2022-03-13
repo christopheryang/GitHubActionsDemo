@@ -15,5 +15,5 @@ jobs:
         run: |
           echo "WF_ENV_VAR: ${WF_ENV_VAR}"
           echo "JOB_ENV_VAR: ${JOB_ENV_VAR}"
-          echo "STEP_ENV_VAR: ${ STEP_ENV_VAR }
+          echo "STEP_ENV_VAR: ${STEP_ENV_VAR}
           echo "Github ref: ${GITHUB_REF}
