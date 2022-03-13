@@ -1,6 +1,6 @@
 name: Env variables workflow
 on:
-  push:
+  #push:
   workflow_dispatch:
 jobs:
   push-random-file:

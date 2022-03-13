@@ -19,5 +19,6 @@ jobs:
           echo "JOB_ENV_VAR: ${JOB_ENV_VAR}"
           echo "STEP_ENV_VAR: ${STEP_ENV_VAR}
           echo "Github ref: ${GITHUB_REF}
+          echo "Github ref type: $GITHUB_REF_TYPE
           echo "AWS API_KEY: ${{ secrets.AWS_API_KEY_DEV }}
           echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
