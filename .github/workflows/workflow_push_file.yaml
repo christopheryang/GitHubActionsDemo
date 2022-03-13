@@ -1,0 +1,26 @@
+name: Env variables workflow
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  push-random-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push random.txt to remote repo
+        run: |
+          pwd
+          ls -a
+          git init
+          git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git"
+          git config --global user.email "doNotReply@octanelending.com"
+          git config --global user.name "Github Actions Bot"
+          git fetch
+          git checkout master
+          git branch --set-upstream-to=origin/master
+          git pull
+          ls -al
+          echo $RNADOM >> random.txt
+          ls -a
+          git add -A
+          git commit -m "Adding a random file"
+          git push

@@ -1,6 +1,6 @@
 name: Env variables workflow
 on:
-  push:
+  # push:
   workflow_dispatch:
 env:
   WF_ENV_VAR: Available to all jobs
