@@ -1,0 +1,19 @@
+name: Env variables workflow
+on: push
+env:
+  WF_ENV_VAR: Available to all jobs
+
+jobs:
+  log-env:
+    runs-on: ubuntu-latest
+    env:
+      JOB_ENV_VAR: Available to all steps in a job
+    steps:
+      - name: Log Env Variables
+        env:
+          STEP_ENV_VAR: Available to a step only
+        run: |
+          echo "WF_ENV_VAR: ${WF_ENV_VAR}"
+          echo "JOB_ENV_VAR: ${JOB_ENV_VAR}"
+          echo "STEP_ENV_VAR: ${ STEP_ENV_VAR }
+          echo "Github ref: ${GITHUB_REF}
