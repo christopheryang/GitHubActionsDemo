@@ -1,0 +1,14 @@
+# Must first have the secret.json file and encrypt it to secret.json.gpg and save it in the repo
+name: Decrypt secret file
+on:
+  # push:
+  workflow_dispatch:
+jobs:
+  decrypt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Decrypt file
+      - uses: actions/checkout@v1
+        run: gpg --quiet --batch --yes --decrypt --passpharse="$PHASSPHRASE" --output $HOME/secret.json secret.json.gpg
+        env:
+          PASSPHRASE: gpg ${{ secrets.PASSPHRASE }}
