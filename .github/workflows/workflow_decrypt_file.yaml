@@ -7,8 +7,9 @@ jobs:
   decrypt:
     runs-on: ubuntu-latest
     steps:
-      - name: Decrypt file
+      - name: Check out
         uses: actions/checkout@v1
+      - name: Decrypt file
         run: gpg --quiet --batch --yes --decrypt --passpharse="$PHASSPHRASE" --output $HOME/secret.json secret.json.gpg
         env:
           PASSPHRASE: gpg ${{ secrets.PASSPHRASE }}
