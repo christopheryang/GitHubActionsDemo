@@ -1,0 +1,20 @@
+name: Multiple containers
+on:
+  workflow_dispatch:
+jobs:
+  start-containers:
+    runs-on: ubuntu-latest
+    services: # declare multiple containers to run jobs
+      app: # we can use the service name as hostname
+        image: alialaa17/node-api
+        ports:
+          - 3001:3000
+      mongo:
+        image: mongo
+        ports:
+          - "27017:27017"
+    steps:
+      - name: Create a user
+        run: "curl -X POST http://localhost:3001/api/user -H 'Content-Type: application/json' -d '{\"username\":\"hello\", \"address\":\"Somewhere\"}'"
+      - name: Get users
+        run: "curl http://localhost:3001/api/users"
